@@ -69,7 +69,7 @@ jobs:
     needs: dockerBuildPush
     environment:
       name: dev
-      url: https://yj5yt6ailt-dev.azurewebsites.net/
+      url: https://yj5yt6ailtnpm-dev.azurewebsites.net/
     
     steps:
       - name: 'Login via Azure CLI'
@@ -83,7 +83,7 @@ jobs:
 
       - uses: azure/webapps-deploy@v2
         with:
-          app-name: 'yj5yt6ailt-dev'
+          app-name: 'yj5yt6ailtnpm-dev'
           images: yj5yt6ailtnpmmpnpreg.azurecr.io/techboost/dotnetcoreapp:${{github.run_number}}
 
   deploy-to-test:
@@ -92,7 +92,7 @@ jobs:
     needs: deploy-to-dev
     environment:
       name: test
-      url: https://yj5yt6ailt-test.azurewebsites.net/
+      url: https://yj5yt6ailtnpm-test.azurewebsites.net/
     
     steps:
     - uses: actions/checkout@v3
@@ -108,7 +108,7 @@ jobs:
 
     - uses: azure/webapps-deploy@v2
       with:
-        app-name: 'yj5yt6ailt-test'
+        app-name: 'yj5yt6ailtnpm-test'
         images: yj5yt6ailtnpmmpnpreg.azurecr.io/techboost/dotnetcoreapp:${{github.run_number}}
 
   deploy-to-prod:
@@ -117,7 +117,7 @@ jobs:
     needs: deploy-to-test
     environment:
       name: prod
-      url: https://yj5yt6ailt-prod.azurewebsites.net/
+      url: https://yj5yt6ailtnpm-prod.azurewebsites.net/
     
     steps:
     - uses: actions/checkout@v3
@@ -133,5 +133,5 @@ jobs:
 
     - uses: azure/webapps-deploy@v2
       with:
-        app-name: 'yj5yt6ailt-prod'
+        app-name: 'yj5yt6ailtnpm-prod'
         images: yj5yt6ailtnpmmpnpreg.azurecr.io/techboost/dotnetcoreapp:${{github.run_number}}
