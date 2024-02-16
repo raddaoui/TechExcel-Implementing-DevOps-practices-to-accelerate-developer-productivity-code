@@ -8,7 +8,7 @@ on:
         - dev
         - test
         - prod
-    
+permissions: write-all    
 name: Azure Bicep-Advanced
 jobs:
   build-and-deploy:
