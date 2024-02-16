@@ -6,6 +6,8 @@ env:
   dockerFolderPath: ./Application/src/RazorPagesTestSample
   tag: ${{github.run_number}}
 
+permissions: write-all
+
 on:
   push:
     branches: [ main ]
