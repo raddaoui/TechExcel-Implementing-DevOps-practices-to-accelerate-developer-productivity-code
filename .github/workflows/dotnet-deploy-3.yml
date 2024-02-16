@@ -1,4 +1,4 @@
-name: .NET CI
+name: full .NET CI
 
 env:
   registryName: yj5yt6ailtnpmmpnpreg.azurecr.io
